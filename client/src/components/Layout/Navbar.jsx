@@ -17,6 +17,7 @@ export default function Navbar() {
       <div className="navbar-links">
         {user ? (
           <>
+            <Link to="/trips/new">Plan Trip</Link>
             <span className="navbar-role">{roleLabels[user.role] || user.role}</span>
             {user.role === 'admin' && <Link to="/admin/users">Manage Users</Link>}
             <span className="navbar-user">{user.name}</span>

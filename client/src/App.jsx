@@ -7,6 +7,7 @@ import Register from './components/Auth/Register.jsx';
 import ForgotPassword from './components/Auth/ForgotPassword.jsx';
 import ResetPassword from './components/Auth/ResetPassword.jsx';
 import UserManagement from './components/Admin/UserManagement.jsx';
+import TripSetupPage from './pages/TripSetupPage.jsx';
 
 function Home() {
   const { user } = useAuth();
@@ -33,6 +34,11 @@ export default function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path="/trips/new" element={
+            <ProtectedRoute roles={['traveler', 'place_owner', 'admin']}>
+              <TripSetupPage />
+            </ProtectedRoute>
+          } />
           <Route
             path="/admin/users"
             element={
