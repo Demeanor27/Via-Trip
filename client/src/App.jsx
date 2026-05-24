@@ -8,37 +8,42 @@ import ForgotPassword from './components/Auth/ForgotPassword.jsx';
 import ResetPassword from './components/Auth/ResetPassword.jsx';
 import UserManagement from './components/Admin/UserManagement.jsx';
 import TripSetupPage from './pages/TripSetupPage.jsx';
+import HeroSection from './components/Home/HeroSection.jsx';
+import FeatureBar from './components/Layout/FeatureBar.jsx';
+import InspirationSection from './components/Home/InspirationSection.jsx';
+import Footer from './components/Layout/Footer.jsx';
 
 function Home() {
   const { user } = useAuth();
   return (
-    <div className="home-page">
-      <h1>Welcome to Via-Trip</h1>
-      {user ? (
-        <p>Signed in as <strong>{user.name}</strong> ({user.role})</p>
-      ) : (
-        <p>Browse routes, discover places, and plan your journey.</p>
-      )}
-    </div>
+    <>
+      <HeroSection />
+      <FeatureBar variant="home" />
+      <InspirationSection />
+      <Footer variant="home" />
+    </>
   );
 }
 
 export default function App() {
   return (
-    <div className="app">
+    <div className="min-h-screen flex flex-col bg-surface">
       <Navbar />
-      <main className="main-content">
+      <div className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/reset-password" element={<ResetPassword />} />
-          <Route path="/trips/new" element={
-            <ProtectedRoute roles={['traveler', 'place_owner', 'admin']}>
-              <TripSetupPage />
-            </ProtectedRoute>
-          } />
+          <Route
+            path="/trips/new"
+            element={
+              <ProtectedRoute roles={['traveler', 'place_owner', 'admin']}>
+                <TripSetupPage />
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="/admin/users"
             element={
@@ -49,7 +54,7 @@ export default function App() {
           />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
-      </main>
+      </div>
     </div>
   );
 }
