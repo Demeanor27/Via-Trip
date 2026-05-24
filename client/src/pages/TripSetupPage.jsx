@@ -67,9 +67,11 @@ export default function TripSetupPage() {
   };
 
   return (
-    <div className="trip-setup-page">
-      <h1>Plan Your Trip</h1>
-      {error && <div className="auth-error">{error}</div>}
+    <div className="max-w-4xl mx-auto px-4 py-8">
+      <h1 className="text-2xl font-bold text-gray-900 mb-6">Plan Your Trip</h1>
+      {error && (
+        <div className="bg-red-50 text-red-700 text-sm px-4 py-2 rounded-lg mb-4">{error}</div>
+      )}
 
       <TripSetupForm onCalculateRoute={handleCalculateRoute} loading={loading} />
 
@@ -82,8 +84,12 @@ export default function TripSetupPage() {
       {route && <TripRouteInfo route={route} />}
 
       {route && user && (
-        <div className="save-trip-bar">
-          <button onClick={handleSaveTrip} disabled={saving} className="btn-primary">
+        <div className="text-center mt-6">
+          <button
+            onClick={handleSaveTrip}
+            disabled={saving}
+            className="px-8 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark disabled:opacity-50 transition-colors"
+          >
             {saving ? 'Saving...' : 'Save Trip'}
           </button>
         </div>

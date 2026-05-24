@@ -8,19 +8,23 @@ const styles = [
 
 export default function TravelStyleSelector({ value, onChange }) {
   return (
-    <div className="travel-style-selector">
-      <label>Travel Style</label>
-      <div className="style-options">
+    <div>
+      <label className="block font-medium text-sm text-gray-700 mb-2">Travel Style</label>
+      <div className="flex gap-2 flex-wrap">
         {styles.map((s) => (
           <button
             key={s.value}
             type="button"
-            className={`style-card ${value === s.value ? 'selected' : ''}`}
+              className={`flex flex-col items-center p-3 border-2 rounded-lg cursor-pointer min-w-[120px] flex-1 transition-all ${
+                value === s.value
+                  ? 'border-brand-500 bg-brand-50'
+                  : 'border-[#E0DED6] bg-white hover:border-gray-300'
+              }`}
             onClick={() => onChange(s.value)}
           >
-            <span className="style-emoji">{s.emoji}</span>
-            <span className="style-label">{s.label}</span>
-            <span className="style-desc">{s.desc}</span>
+            <span className="text-2xl mb-1">{s.emoji}</span>
+            <span className="font-semibold text-sm text-gray-800">{s.label}</span>
+            <span className="text-xs text-gray-500 text-center mt-1">{s.desc}</span>
           </button>
         ))}
       </div>
