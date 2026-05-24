@@ -115,18 +115,18 @@ export default function MapContainer({ origin, destination, routeGeometry, onMap
     routePolyline.current = new google.maps.Polyline({
       path,
       geodesic: true,
-      strokeColor: '#2563eb',
+      strokeColor: '#4A7C2F',
       strokeOpacity: 0.8,
       strokeWeight: 4,
       map: mapInstance.current,
     });
   }, [mapReady, routeGeometry]);
 
-  if (error) return <div className="map-error">{error}</div>;
+  if (error) return <div className="bg-red-50 text-red-700 text-sm px-4 py-3 rounded-lg mb-6">{error}</div>;
 
   return (
-    <div className="map-wrapper">
-      <div ref={mapRef} className="map-container" style={{ width: '100%', height: '500px' }} />
+    <div className="rounded-xl overflow-hidden shadow-sm border border-gray-200 mb-6">
+      <div ref={mapRef} style={{ width: '100%', height: '500px' }} />
     </div>
   );
 }

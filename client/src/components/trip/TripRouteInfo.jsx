@@ -13,22 +13,22 @@ export default function TripRouteInfo({ route }) {
   };
 
   return (
-    <div className="trip-route-info">
-      <div className="info-card">
-        <span className="info-label">Distance</span>
-        <span className="info-value">{formatDistance(route.distanceM)}</span>
+    <div className="flex gap-4 mb-6 flex-wrap">
+      <div className="flex-1 min-w-[140px] bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+        <span className="block text-xs text-gray-500 uppercase tracking-wider mb-1">Distance</span>
+        <span className="text-lg font-semibold text-gray-800">{formatDistance(route.distanceM)}</span>
       </div>
-      <div className="info-card">
-        <span className="info-label">Driving Time</span>
-        <span className="info-value">{formatDuration(route.durationS)}</span>
+      <div className="flex-1 min-w-[140px] bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+        <span className="block text-xs text-gray-500 uppercase tracking-wider mb-1">Driving Time</span>
+        <span className="text-lg font-semibold text-gray-800">{formatDuration(route.durationS)}</span>
       </div>
-      <div className="info-card">
-        <span className="info-label">Origin</span>
-        <span className="info-value small">{route.originAddress}</span>
+      <div className="flex-1 min-w-[140px] bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+        <span className="block text-xs text-gray-500 uppercase tracking-wider mb-1">Origin</span>
+        <span className="text-sm text-gray-600">{route.originAddress}</span>
       </div>
-      <div className="info-card">
-        <span className="info-label">Destination</span>
-        <span className="info-value small">{route.destinationAddress}</span>
+      <div className="flex-1 min-w-[140px] bg-white rounded-xl shadow-sm border border-gray-200 p-4">
+        <span className="block text-xs text-gray-500 uppercase tracking-wider mb-1">Destination</span>
+        <span className="text-sm text-gray-600">{route.destinationAddress}</span>
       </div>
     </div>
   );
