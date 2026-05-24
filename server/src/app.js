@@ -6,7 +6,6 @@ import { generalLimiter } from './middleware/rateLimiter.js';
 import { redact, redactLog } from './utils/redact.js';
 import authRoutes from './routes/auth.js';
 import adminRoutes from './routes/admin.js';
-import tripRoutes from './routes/trip.js';
 
 const app = express();
 
@@ -17,7 +16,6 @@ app.use(generalLimiter);
 
 app.use('/api/auth', authRoutes);
 app.use('/api/admin', adminRoutes);
-app.use('/api/trips', tripRoutes);
 
 app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
