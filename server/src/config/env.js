@@ -13,6 +13,7 @@ const env = {
   SMTP_PASS: process.env.SMTP_PASS || '',
   RESET_LINK_BASE: process.env.RESET_LINK_BASE || 'http://localhost:5173/reset-password',
   NODE_ENV: process.env.NODE_ENV || 'development',
+  GOOGLE_MAPS_API_KEY: process.env.GOOGLE_MAPS_API_KEY || '',
 };
 
 const REQUIRED = ['DATABASE_URL', 'JWT_SECRET'];
